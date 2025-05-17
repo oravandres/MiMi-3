@@ -101,7 +101,7 @@ class Project(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(255), nullable=False)
     goal = Column(Text, nullable=False)
-    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.datetime.now(datetime.UTC))
 
     tasks = relationship("Task", back_populates="project", cascade="all, delete-orphan")
 
@@ -116,7 +116,7 @@ class Task(Base):
     description = Column(Text)
     status = Column(String(50), default="pending")
     result = Column(Text)
-    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.datetime.now(datetime.UTC))
 
     project_id = Column(Integer, ForeignKey("projects.id"), nullable=False)
     project = relationship("Project", back_populates="tasks")
@@ -133,5 +133,5 @@ class Memory(Base):
     id = Column(Integer, primary_key=True)
     agent_id = Column(Integer, ForeignKey("agents.id"), nullable=False)
     task_id = Column(Integer, ForeignKey("tasks.id"), nullable=False)
-    timestamp = Column(DateTime, default=datetime.datetime.utcnow)
+    timestamp = Column(DateTime, default=lambda: datetime.datetime.now(datetime.UTC))
     content = Column(Text, nullable=False)

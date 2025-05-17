@@ -1,5 +1,5 @@
 """Simple persistent memory tool for agents."""
-from datetime import datetime
+from datetime import datetime, UTC
 from sqlalchemy.orm import Session
 from .. import models
 
@@ -14,7 +14,7 @@ class MemoryTool:
     # ------------------------------------------------------------------ #
 
     def save(self, *, agent_id: int, task_id: int, content: str) -> None:
-        entry = models.Memory(agent_id=agent_id, task_id=task_id, content=content, timestamp=datetime.utcnow())
+        entry = models.Memory(agent_id=agent_id, task_id=task_id, content=content, timestamp=datetime.now(UTC))
         self.db.add(entry)
         self.db.commit()
 
