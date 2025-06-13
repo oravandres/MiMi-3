@@ -18,6 +18,10 @@ def test_memory_tool_roundtrip():
         mem.save(agent_id=agent.id, task_id=task.id, content="Hello memory!")
         mem.save(agent_id=agent.id, task_id=task.id, content="Second message")
 
+        latest = mem.recall(agent_id=agent.id, task_id=task.id, limit=1)
+        assert latest == ["Second message"]
+
         recall = mem.recall(agent_id=agent.id, task_id=task.id)
+        assert len(recall) == 2
         assert recall[0] == "Second message"
         assert recall[-1] == "Hello memory!"
