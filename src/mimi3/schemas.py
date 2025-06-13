@@ -1,30 +1,27 @@
 """Pydantic models for safe I/O."""
 from datetime import datetime
 from typing import List, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 class ModelSchema(BaseModel):
     id: int
     name: str
     version: Optional[str]
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class ToolSchema(BaseModel):
     id: int
     name: str
     type: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class RoleSchema(BaseModel):
     id: int
     name: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class AgentSchema(BaseModel):
     id: int
@@ -33,8 +30,7 @@ class AgentSchema(BaseModel):
     models: List[ModelSchema]
     tools: List[ToolSchema]
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class TaskSchema(BaseModel):
     id: int
@@ -42,8 +38,7 @@ class TaskSchema(BaseModel):
     status: str
     agents: List[AgentSchema]
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class ProjectSchema(BaseModel):
     id: int
@@ -52,5 +47,4 @@ class ProjectSchema(BaseModel):
     created_at: datetime
     tasks: List[TaskSchema]
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
