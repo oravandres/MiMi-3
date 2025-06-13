@@ -1,4 +1,4 @@
-"""BuilderAgent specialising in code generation."""
+"""BuilderAgent specializing in code generation."""
 from crewai import Task
 from .base import MultiModelAgent
 
