@@ -4,7 +4,7 @@ from .database import init_db, SessionLocal
 from .crud import create_role, create_model, create_tool
 from . import models
 
-app = typer.Typer(help="ma_framework CLI")
+app = typer.Typer(help="MiMi-3 CLI")
 
 @app.command()
 def initdb() -> None:
