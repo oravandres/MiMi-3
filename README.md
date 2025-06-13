@@ -86,7 +86,7 @@ For production use, create a `.env` file based on these settings:
 ```
 DATABASE_URL=postgresql+psycopg2://user:password@localhost:5432/dbname
 OLLAMA_HOST=http://localhost:11434
-DEFAULT_LLM=llama3:8b
+DEFAULT_LLM=deepseek-r1:latest
 ```
 
 ## Development Environment
@@ -146,4 +146,3 @@ docker-compose down
 docker-compose down -v
 ```
 
-*Generated on 2025-05-16T12:17:40 UTC.*
