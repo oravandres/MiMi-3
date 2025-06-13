@@ -1,8 +1,8 @@
 """Integration smoke test (DB interactions only)."""
 import uuid
 import pytest
-from ma_framework.database import init_db, SessionLocal
-from ma_framework.crud import (
+from mimi3.database import init_db, SessionLocal
+from mimi3.crud import (
     create_role,
     create_model,
     create_agent,

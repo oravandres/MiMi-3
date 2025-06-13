@@ -1,7 +1,7 @@
 """Unit tests for SQLAlchemy models integrity."""
 import uuid
-from ma_framework import models
-from ma_framework.database import init_db, SessionLocal
+from mimi3 import models
+from mimi3.database import init_db, SessionLocal
 
 def test_create_role_and_agent():
     init_db()

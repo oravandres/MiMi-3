@@ -1,8 +1,8 @@
 """MemoryTool round‑trip tests."""
 import uuid
-from ma_framework.database import init_db, SessionLocal
-from ma_framework.crud import create_role, create_agent, create_model, create_project, create_task
-from ma_framework.tools.memory import MemoryTool
+from mimi3.database import init_db, SessionLocal
+from mimi3.crud import create_role, create_agent, create_model, create_project, create_task
+from mimi3.tools.memory import MemoryTool
 
 def test_memory_tool_roundtrip():
     init_db()
